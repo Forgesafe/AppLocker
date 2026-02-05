@@ -1,0 +1,179 @@
+<AppLockerPolicy Version="1">
+<RuleCollection Type="Script" EnforcementMode="Enabled">
+<FilePathRule Id="ed97d0cb-15ff-430f-b82c-8d7832957725" Name="(Default Rule) All scripts" Description="Allows members of the local Administrators group to run all scripts." UserOrGroupSid="S-1-5-32-544" Action="Allow">
+<Conditions>
+<FilePathCondition Path="*"/>
+</Conditions>
+</FilePathRule>
+<FilePathRule Id="742c089a-d5bc-4f1e-98dc-2535b7b164b5" Name="All scripts located in the Program Files folder" Description="Allows members of the Everyone group to run scripts that are located in the Program Files folder." UserOrGroupSid="S-1-1-0" Action="Allow">
+<Conditions>
+<FilePathCondition Path="%PROGRAMFILES%\*"/>
+</Conditions>
+</FilePathRule>
+<FilePathRule Id="2d2e2715-50d1-4f32-9885-7c935e189f44" Name="All scripts located in the Windows folder" Description="Allows members of the Everyone group to run scripts that are located in the Windows folder." UserOrGroupSid="S-1-1-0" Action="Allow">
+<Conditions>
+<FilePathCondition Path="%WINDIR%\*"/>
+</Conditions>
+<Exceptions>
+<FilePathCondition Path="%WINDIR%\registration\crmlog\*"/>
+<FilePathCondition Path="%SYSTEM32%\com\dmp\*"/>
+<FilePathCondition Path="%SYSTEM32%\drivers\driverdata\*"/>
+<FilePathCondition Path="%SYSTEM32%\drivers\driverdata:*"/>
+<FilePathCondition Path="%SYSTEM32%\fxstmp\*"/>
+<FilePathCondition Path="%SYSTEM32%\microsoft\crypto\rsa\machinekeys\*"/>
+<FilePathCondition Path="%SYSTEM32%\microsoft\crypto\rsa\machinekeys:*"/>
+<FilePathCondition Path="%SYSTEM32%\spool\drivers\color\*"/>
+<FilePathCondition Path="%SYSTEM32%\spool\printers\*"/>
+<FilePathCondition Path="%SYSTEM32%\spool\servers\*"/>
+<FilePathCondition Path="%SYSTEM32%\tasks\*"/>
+<FilePathCondition Path="%SYSTEM32%\tasks_migrated\*"/>
+<FilePathCondition Path="%WINDIR%\tasks\*"/>
+<FilePathCondition Path="%WINDIR%\temp\*"/>
+<FilePathCondition Path="%WINDIR%\tracing\*"/>
+<FilePathCondition Path="%WINDIR%\tracing:*"/>
+</Exceptions>
+</FilePathRule>
+<FilePathRule Id="8b003c31-cded-4a39-8ef9-f371807b5cde" Name="Additional allowed path: %OSDRIVE%\PROGRAMDATA\MICROSOFT\WINDOWS DEFENDER\PLATFORM\*" Description="Allows Everyone to execute from %OSDRIVE%\PROGRAMDATA\MICROSOFT\WINDOWS DEFENDER\PLATFORM\*" UserOrGroupSid="S-1-1-0" Action="Allow">
+<Conditions>
+<FilePathCondition Path="%OSDRIVE%\PROGRAMDATA\MICROSOFT\WINDOWS DEFENDER\PLATFORM\*"/>
+</Conditions>
+</FilePathRule>
+<FilePathRule Id="d43870be-d54a-43d1-885b-3ca06ca75b41" Name="Allow Exchange Online PowerShell module files in path: %OSDRIVE%\Users\*\AppData\Local\Temp\tmpEXO_*.*\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+<Conditions>
+<FilePathCondition Path="%OSDRIVE%\Users\*\AppData\Local\Temp\tmpEXO_*.*\tmpEXO_*.*.psd1"/>
+</Conditions>
+</FilePathRule>
+<FilePathRule Id="d43870be-d54a-43d1-885b-3ca06ca75b42" Name="Allow Exchange Online PowerShell module files in path: %OSDRIVE%\Users\*\AppData\Local\Temp\tmpEXO_*.*\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+<Conditions>
+<FilePathCondition Path="%OSDRIVE%\Users\*\AppData\Local\Temp\tmpEXO_*.*\tmpEXO_*.*.psm1"/>
+</Conditions>
+</FilePathRule>
+<FilePathRule Id="d43870be-d54a-43d1-885b-3ca06ca75b43" Name="Allow Exchange Online PowerShell module files in path: %OSDRIVE%\Users\*\AppData\Local\Temp\tmpEXO_*.*\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+<Conditions>
+<FilePathCondition Path="%OSDRIVE%\Users\*\AppData\Local\Temp\tmpEXO_*.*\PSGET_tmpEXO_*.*.psd1"/>
+</Conditions>
+</FilePathRule>
+<FilePathRule Id="d43870be-d54a-43d1-885b-3ca06ca75b44" Name="Allow Exchange Online PowerShell module files in path: %OSDRIVE%\Users\*\AppData\Local\Temp\tmpEXO_*.*\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+<Conditions>
+<FilePathCondition Path="%OSDRIVE%\Users\*\AppData\Local\Temp\tmpEXO_*.*\exchange.format.ps1xml"/>
+</Conditions>
+</FilePathRule>
+<FilePathRule Id="dca1e135-1f9b-4de0-9ab5-92809a475a2e" Name="Allow only PowerShell in %OSDRIVE%\Scripts" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+<Conditions>
+<FilePathCondition Path="%OSDRIVE%\Scripts\*.ps1"/>
+</Conditions>
+</FilePathRule>
+</RuleCollection>
+<RuleCollection Type="Appx" EnforcementMode="Enabled">
+<FilePublisherRule Id="5b2a8477-5617-4653-badd-81ee23fc2bb6" Name="All signed packaged apps" Description="Allows members of the Everyone group to run packaged apps that are signed." UserOrGroupSid="S-1-1-0" Action="Allow">
+<Conditions>
+<FilePublisherCondition PublisherName="*" ProductName="*" BinaryName="*">
+<BinaryVersionRange LowSection="0.0.0.0" HighSection="*"/>
+</FilePublisherCondition>
+</Conditions>
+</FilePublisherRule>
+</RuleCollection>
+<RuleCollection Type="Exe" EnforcementMode="Enabled">
+<FilePublisherRule Id="874616bc-ef85-49e6-937a-24ea789438d8" Name="FILESYNCCONFIG.EXE, in MICROSOFT ONEDRIVE, from O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+<Conditions>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="MICROSOFT ONEDRIVE" BinaryName="FILESYNCCONFIG.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*"/>
+</FilePublisherCondition>
+</Conditions>
+</FilePublisherRule>
+<FilePublisherRule Id="f3a00917-ecf4-4cec-9b90-9749b66b6dc5" Name="INTUNEWINAPPUTIL.EXE, version 6.1904.0.0 and above, in MICROSOFT® INTUNE™, from O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+<Conditions>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="MICROSOFT® INTUNE™" BinaryName="INTUNEWINAPPUTIL.EXE">
+<BinaryVersionRange LowSection="6.1904.0.0" HighSection="*"/>
+</FilePublisherCondition>
+</Conditions>
+</FilePublisherRule>
+<FilePathRule Id="fd686d83-a829-4351-8ff4-27c7de5755d2" Name="(Default Rule) All files" Description="Allows members of the local Administrators group to run all applications." UserOrGroupSid="S-1-5-32-544" Action="Allow">
+<Conditions>
+<FilePathCondition Path="*"/>
+</Conditions>
+</FilePathRule>
+<FilePathRule Id="cdfd5d1c-828f-4bd6-9542-1395c6088f82" Name="All files located in the Program Files folder" Description="Allows members of the Everyone group to run applications that are located in the Program Files folder." UserOrGroupSid="S-1-1-0" Action="Allow">
+<Conditions>
+<FilePathCondition Path="%PROGRAMFILES%\*"/>
+</Conditions>
+</FilePathRule>
+<FilePathRule Id="38080c1b-54bc-4f7e-804d-fafb70bf781b" Name="All files located in the Windows folder" Description="Allows members of the Everyone group to run applications that are located in the Windows folder." UserOrGroupSid="S-1-1-0" Action="Allow">
+<Conditions>
+<FilePathCondition Path="%WINDIR%\*"/>
+</Conditions>
+<Exceptions>
+<FilePathCondition Path="%WINDIR%\registration\crmlog\*"/>
+<FilePathCondition Path="%SYSTEM32%\com\dmp\*"/>
+<FilePathCondition Path="%SYSTEM32%\drivers\driverdata\*"/>
+<FilePathCondition Path="%SYSTEM32%\drivers\driverdata:*"/>
+<FilePathCondition Path="%SYSTEM32%\fxstmp\*"/>
+<FilePathCondition Path="%SYSTEM32%\microsoft\crypto\rsa\machinekeys\*"/>
+<FilePathCondition Path="%SYSTEM32%\microsoft\crypto\rsa\machinekeys:*"/>
+<FilePathCondition Path="%SYSTEM32%\spool\drivers\color\*"/>
+<FilePathCondition Path="%SYSTEM32%\spool\printers\*"/>
+<FilePathCondition Path="%SYSTEM32%\spool\servers\*"/>
+<FilePathCondition Path="%SYSTEM32%\tasks\*"/>
+<FilePathCondition Path="%SYSTEM32%\tasks_migrated\*"/>
+<FilePathCondition Path="%WINDIR%\tasks\*"/>
+<FilePathCondition Path="%WINDIR%\temp\*"/>
+<FilePathCondition Path="%WINDIR%\tracing\*"/>
+<FilePathCondition Path="%WINDIR%\tracing:*"/>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="MICROSOFT® .NET FRAMEWORK" BinaryName="MSBUILD.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*"/>
+</FilePublisherCondition>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="MICROSOFT® WINDOWS® OPERATING SYSTEM" BinaryName="RUNAS.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*"/>
+</FilePublisherCondition>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="MICROSOFT® .NET FRAMEWORK" BinaryName="REGSVCS.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*"/>
+</FilePublisherCondition>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="MICROSOFT® WINDOWS® OPERATING SYSTEM" BinaryName="PRESENTATIONHOST.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*"/>
+</FilePublisherCondition>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="INTERNET EXPLORER" BinaryName="MSHTA.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*"/>
+</FilePublisherCondition>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="MICROSOFT® WINDOWS® OPERATING SYSTEM" BinaryName="CIPHER.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*"/>
+</FilePublisherCondition>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="MICROSOFT® .NET FRAMEWORK" BinaryName="INSTALLUTIL.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*"/>
+</FilePublisherCondition>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="MICROSOFT® WINDOWS® OPERATING SYSTEM" BinaryName="WMIC.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*"/>
+</FilePublisherCondition>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="MICROSOFT® .NET FRAMEWORK" BinaryName="REGASM.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*"/>
+</FilePublisherCondition>
+</Exceptions>
+</FilePathRule>
+<FilePathRule Id="b91a15a0-1086-4750-bcdd-b1aad9ab0a92" Name="Additional allowed path: %OSDRIVE%\PROGRAMDATA\MICROSOFT\WINDOWS DEFENDER\PLATFORM\*" Description="Allows Everyone to execute from %OSDRIVE%\PROGRAMDATA\MICROSOFT\WINDOWS DEFENDER\PLATFORM\*" UserOrGroupSid="S-1-1-0" Action="Allow">
+<Conditions>
+<FilePathCondition Path="%OSDRIVE%\PROGRAMDATA\MICROSOFT\WINDOWS DEFENDER\PLATFORM\*"/>
+</Conditions>
+</FilePathRule>
+<FilePathRule Id="5e7879ba-0526-4e23-ba5f-2c2e63b209c3" Name="Curl" Description="" UserOrGroupSid="S-1-1-0" Action="Deny">
+<Conditions>
+<FilePathCondition Path="%SYSTEM32%\curl.exe"/>
+</Conditions>
+</FilePathRule>
+</RuleCollection>
+<RuleCollection Type="Msi" EnforcementMode="Enabled">
+<FilePathRule Id="5b290184-345a-4453-b184-45305f6d9a54" Name="(Default Rule) All Windows Installer files in %systemdrive%\Windows\Installer" Description="Allows members of the Everyone group to run all Windows Installer files located in %systemdrive%\Windows\Installer." UserOrGroupSid="S-1-1-0" Action="Allow">
+<Conditions>
+<FilePathCondition Path="%WINDIR%\Installer\*"/>
+</Conditions>
+</FilePathRule>
+<FilePathRule Id="12d32b5e-800b-479b-8182-d063c4ce19b5" Name="%WINDIR%\IMECache\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+<Conditions>
+<FilePathCondition Path="%WINDIR%\IMECache\*"/>
+</Conditions>
+</FilePathRule>
+<FilePathRule Id="64ad46ff-0d71-4fa0-a30b-3f3d30c5433d" Name="(Default Rule) All Windows Installer files" Description="Allows members of the local Administrators group to run all Windows Installer files." UserOrGroupSid="S-1-5-32-544" Action="Allow">
+<Conditions>
+<FilePathCondition Path="*.*"/>
+</Conditions>
+</FilePathRule>
+</RuleCollection>
+</AppLockerPolicy>
