@@ -1,0 +1,65 @@
+<RuleCollection Type="Script" EnforcementMode="Enabled">
+    <FilePathRule Id="ed97d0cb-15ff-430f-b82c-8d7832957725" Name="(Default Rule) All scripts" Description="Allows members of the local Administrators group to run all scripts." UserOrGroupSid="S-1-5-32-544" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="742c089a-d5bc-4f1e-98dc-2535b7b164b5" Name="All scripts located in the Program Files folder" Description="Allows members of the Everyone group to run scripts that are located in the Program Files folder." UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%PROGRAMFILES%\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="2d2e2715-50d1-4f32-9885-7c935e189f44" Name="All scripts located in the Windows folder" Description="Allows members of the Everyone group to run scripts that are located in the Windows folder." UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%WINDIR%\*" />
+      </Conditions>
+      <Exceptions>
+        <FilePathCondition Path="%WINDIR%\registration\crmlog\*" />
+        <FilePathCondition Path="%SYSTEM32%\com\dmp\*" />
+        <FilePathCondition Path="%SYSTEM32%\drivers\driverdata\*" />
+        <FilePathCondition Path="%SYSTEM32%\drivers\driverdata:*" />
+        <FilePathCondition Path="%SYSTEM32%\fxstmp\*" />
+        <FilePathCondition Path="%SYSTEM32%\microsoft\crypto\rsa\machinekeys\*" />
+        <FilePathCondition Path="%SYSTEM32%\microsoft\crypto\rsa\machinekeys:*" />
+        <FilePathCondition Path="%SYSTEM32%\spool\drivers\color\*" />
+        <FilePathCondition Path="%SYSTEM32%\spool\printers\*" />
+        <FilePathCondition Path="%SYSTEM32%\spool\servers\*" />
+        <FilePathCondition Path="%SYSTEM32%\tasks\*" />
+        <FilePathCondition Path="%SYSTEM32%\tasks_migrated\*" />
+        <FilePathCondition Path="%WINDIR%\tasks\*" />
+        <FilePathCondition Path="%WINDIR%\temp\*" />
+        <FilePathCondition Path="%WINDIR%\tracing\*" />
+        <FilePathCondition Path="%WINDIR%\tracing:*" />
+      </Exceptions>
+    </FilePathRule>
+    <FilePathRule Id="8b003c31-cded-4a39-8ef9-f371807b5cde" Name="Additional allowed path: %OSDRIVE%\PROGRAMDATA\MICROSOFT\WINDOWS DEFENDER\PLATFORM\*" Description="Allows Everyone to execute from %OSDRIVE%\PROGRAMDATA\MICROSOFT\WINDOWS DEFENDER\PLATFORM\*" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\PROGRAMDATA\MICROSOFT\WINDOWS DEFENDER\PLATFORM\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="d43870be-d54a-43d1-885b-3ca06ca75b41" Name="Allow Exchange Online PowerShell module files in path: %OSDRIVE%\Users\*\AppData\Local\Temp\tmpEXO_*.*\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Users\*\AppData\Local\Temp\tmpEXO_*.*\tmpEXO_*.*.psd1" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="d43870be-d54a-43d1-885b-3ca06ca75b42" Name="Allow Exchange Online PowerShell module files in path: %OSDRIVE%\Users\*\AppData\Local\Temp\tmpEXO_*.*\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Users\*\AppData\Local\Temp\tmpEXO_*.*\tmpEXO_*.*.psm1" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="d43870be-d54a-43d1-885b-3ca06ca75b43" Name="Allow Exchange Online PowerShell module files in path: %OSDRIVE%\Users\*\AppData\Local\Temp\tmpEXO_*.*\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Users\*\AppData\Local\Temp\tmpEXO_*.*\PSGET_tmpEXO_*.*.psd1" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="d43870be-d54a-43d1-885b-3ca06ca75b44" Name="Allow Exchange Online PowerShell module files in path: %OSDRIVE%\Users\*\AppData\Local\Temp\tmpEXO_*.*\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Users\*\AppData\Local\Temp\tmpEXO_*.*\exchange.format.ps1xml" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="dca1e135-1f9b-4de0-9ab5-92809a475a2e" Name="Allow only PowerShell in %OSDRIVE%\Scripts" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Scripts\*.ps1" />
+      </Conditions>
+    </FilePathRule>
+  </RuleCollection>
